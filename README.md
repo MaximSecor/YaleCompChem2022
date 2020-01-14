@@ -8,7 +8,7 @@ In your home directory (if you aren't sure, just type `cd`), type
 
 ```
 git clone https://github.com/dkonstan/YaleCompChem2020.git
-cd YaleCompChem
+cd YaleCompChem2020
 python setup.py install --user
 ``` 
 
