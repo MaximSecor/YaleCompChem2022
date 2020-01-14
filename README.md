@@ -7,7 +7,7 @@ This will install `gausub`, which is an easy submitter for Gaussian jobs on Grac
 In your home directory (if you aren't sure, just type `cd`), type 
 
 ```
-git clone https://github.com/jjgoings/YaleCompChem.git
+git clone https://github.com/dkonstan/YaleCompChem2020.git
 cd YaleCompChem
 python setup.py install --user
 ``` 
