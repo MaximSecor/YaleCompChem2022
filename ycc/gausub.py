@@ -37,7 +37,7 @@ class SlurmJob(object):
            f.write("#SBATCH --job-name="+self.name+"\n")
            f.write("#SBATCH --nodes=1\n")
            f.write("#SBATCH --cpus-per-task="+str(self.threads)+"\n")
-           f.write("#SBATCH --partition="+self.partition+",day\n")
+           f.write("#SBATCH --partition="+self.partition+"\n")
            f.write("#SBATCH -t 00:"+str(self.time).zfill(2)+":00\n")
            f.write("\n")
            if self.software == 'g16':
