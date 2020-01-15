@@ -47,7 +47,9 @@ class SlurmJob(object):
                f.write("\n")
                f.write("formchk " + self.infile[:-4] + ".chk " + self.infile[:-4] + ".fchk\n")
                f.write("rm slurm-${SLURM_JOB_ID}.out\n")
-               f.write("rm core.*")
+               f.write("rm core.*\n")
+               f.write("rm fort.7\n")
+               f.write("rm " + self.script)
 
         #print(self.software+' submission script written to '+self.script) 
         #print('To submit, do "sbatch '+self.script+'"') 
