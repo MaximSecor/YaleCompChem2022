@@ -45,6 +45,7 @@ class SlurmJob(object):
                f.write("\n")
                f.write(self.software+" < "+self.infile+" > "+self.name+".log\n")
                f.write("\n")
+               f.write("formchk " + self.infile[:-4] + ".chk " + self.infile[:-4] + ".fchk\n")
                f.write("rm slurm-${SLURM_JOB_ID}.out\n")
                f.write("rm core.*")
 
