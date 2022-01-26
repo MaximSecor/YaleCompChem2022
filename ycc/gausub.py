@@ -24,12 +24,13 @@ class SlurmJob(object):
             sys.exit('Gaussian input file must have .com or .gjf extension \n \
                       ...please make the appropriate changes and resubmit.')
      
-        self.name      = infile[0]
-        self.infile    = args.infile 
-        self.threads   = args.nthreads
-        self.partition = args.partition
-        self.time      = args.time
-        self.script    = self.name+'.sh'
+        self.name        = infile[0]
+        self.infile      = args.infile 
+        self.threads     = args.nthreads
+        self.partition   = args.partition
+        self.reservation = args.reservation
+        self.time        = args.time
+        self.script      = self.name+'.sh'
 
     def submit_slurm_script(self):
         with open(self.script,'w') as f:
@@ -38,6 +39,7 @@ class SlurmJob(object):
            f.write("#SBATCH --nodes=1\n")
            f.write("#SBATCH --cpus-per-task="+str(self.threads)+"\n")
            f.write("#SBATCH --partition="+self.partition+"\n")
+           f.write("#SBATCH --reservation "+self.partition+"\n")
            f.write("#SBATCH -t 00:"+str(self.time).zfill(2)+":00\n")
            f.write("\n")
            if self.software == 'g16':
@@ -56,6 +58,7 @@ class SlurmJob(object):
         subprocess.call(['sbatch',self.script])
         print(self.infile+' was successfully submitted.\n'
               +'\tQueue: '+self.partition+'.\n'
+              +'\tReservation: '+self.reservation+'.\n'
               +'\tTime: '+str(self.time)+' minutes.\n'
               +'\tCPUs: '+str(self.threads)+' CPUs.\n'+
                'You can check the status of your job(s) by typing "squeue -u <your_NetID>".')
@@ -65,7 +68,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Submit Gaussian 16 job on Grace.')
     parser.add_argument("infile", help="Gaussian 16 input file")
     parser.add_argument("-nt", "--nthreads",metavar='N', help="CPUs-per-node",type=int,default=1)
-    parser.add_argument("-p","--partition",metavar='P',help="partition",default="chem426")
     parser.add_argument("-t","--time",metavar='T',help="time (min)",type=int,default=15)
     args = parser.parse_args()
 
