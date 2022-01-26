@@ -61,7 +61,7 @@ class SlurmJob(object):
               +'\tReservation: '+self.reservation+'.\n'
               +'\tTime: '+str(self.time)+' minutes.\n'
               +'\tCPUs: '+str(self.threads)+' CPUs.\n'+
-               'You can check the status of your job(s) by typing "squeue -u <your_NetID>".')
+               'You can check the status of your job(s) by typing "squeue -u <your_account>".')
 
     
 if __name__ == '__main__':
