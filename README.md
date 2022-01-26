@@ -1,14 +1,14 @@
-# Submit Gaussian16 jobs for Yale's Chem 426/526
+# Submit Gaussian16 jobs for Yale's Chem 496/596
 
 This will install `gausub`, which is an easy submitter for Gaussian jobs on Grace.
 
 ## Install
 
-In your home directory (if you aren't sure, just type `cd`), type 
+In your project directory, type 
 
 ```
-git clone https://github.com/dkonstan/YaleCompChem2020.git
-cd YaleCompChem2020
+git clone https://github.com/dkonstan/YaleCompChem2022.git
+cd YaleCompChem2022
 python setup.py install --user
 ``` 
 
