@@ -7,7 +7,7 @@ This will install `gausub`, which is an easy submitter for Gaussian jobs on Grac
 In your project directory, type 
 
 ```
-git clone https://github.com/dkonstan/YaleCompChem2022.git
+git clone https://github.com/MaximSecor/YaleCompChem2022.git
 cd YaleCompChem2022
 python setup.py install --user
 ``` 
@@ -27,9 +27,11 @@ gausub water.com
 This will prepare a submission script for you and send it to the queue to run. You can check on it by typing 
 
 ```
-squeue -u <Your NetID>
+squeue -u <Your Account>
 ```
 
+Your account will be "chem496_<Your NetID>"
+  
 Once complete, the output will be written to `water.log`.
 
 If you want to inspect the submission script, it will have the same name as your input, but with a `.sh` extension (e.g. `water.sh`)
