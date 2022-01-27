@@ -16,12 +16,12 @@ This should install the submitter `gausub`.
 
 ## Usage
 
-Say we have a G16 job: `water.com`, which is a water molecule (you can find this in `examples/water.com`)
+Say we have a G16 job: `water.gjf`, which is a water molecule (you can find this in `examples/water.gjf`)
 
 To submit it, just
 
 ```
-gausub water.com
+gausub water.gjf
 ```
 
 This will prepare a submission script for you and send it to the queue to run. You can check on it by typing 
@@ -40,6 +40,6 @@ If you want to inspect the submission script, it will have the same name as your
 
 Type `gausub --help` for a list of command-line options. You can change the time given to the job and number of CPUs here. 
 
-(Note that if you want to use more CPUs, you must *also* change the input file to request a greater number of CPUs. In the Gaussian `.com` or `.gjf` file, you must edit `%NprocShared=<num CPUs>`.)
+(Note that if you want to use more CPUs, you must *also* change the input file to request a greater number of CPUs. In the Gaussian `.gjf` or `.com` file, you must edit `%NprocShared=<num CPUs>`.)
 
 
